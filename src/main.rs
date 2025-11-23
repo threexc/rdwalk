@@ -1,5 +1,6 @@
 use nannou::prelude::*;
 use rand::Rng;
+use std::env;
 
 struct RandomWalk {
     positions: Vec<Point2>,
@@ -31,6 +32,8 @@ impl RandomWalk {
 }
 
 fn main() {
+    env::set_var("WINIT_UNIX_BACKEND", "x11");
+
     nannou::app(model)
         .update(update)
         .simple_window(view)
